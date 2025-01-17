@@ -41,11 +41,11 @@ Le projet suit une architecture modulaire avec une séparation claire des préoc
 
     -controllers/ : contient la logique de gestion des requêtes HTTP
 
-    +services/ : contient la logique métier, gère le traitement des données et interagit avec la base de données
+    -services/ : contient la logique métier, gère le traitement des données et interagit avec la base de données
 
     -routes/ : définit les routes de l'API et les associe aux contrôleurs
 
-    +config/ : fichiers de configuration, y compris les connexions à la base de données et les paramètres d'environnement
+    -config/ : fichiers de configuration, y compris les connexions à la base de données et les paramètres d'environnement
 
 ## Fichiers clés :
 
