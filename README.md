@@ -1,19 +1,21 @@
 # Projet de fin de module NoSQL
 
+## Verification des get routes
+
 ```bash
-router.get("/", courseController.getAllCourses);
+router.get("/", courseController.getAllCourses)
 ```
 
 ![](./getall.png)
 
 ```bash
-router.get("/:id", courseController.getCourse);
+router.get("/:id", courseController.getCourse)
 ```
 
 ![](./getById.png)
 
 ```bash
-router.get("/stats", courseController.getCourseStats);
+router.get("/stats", courseController.getCourseStats)
 ```
 
 ![](./getStats.png)
@@ -87,5 +89,3 @@ Mots de passe, clés d'API et informations de connexion.
 ## Pourquoi utiliser des variables d'environnement ?
 
 Pour séparer la configuration du code et sécuriser les données sensibles.
-
-## get routes fonctionnelles
