@@ -55,9 +55,57 @@ async function getCourseStats(collection) {
   }
 }
 
+async function createCourse(collection, course) {
+  try {
+    const database = await db.connectMongo();
+    const lastCourse = await database
+      .collection("course")
+      .find()
+      .sort({ _id: -1 })
+      .limit(1)
+      .toArray();
+
+    // If no courses exist, start from 1
+    const newId = lastCourse.length > 0 ? lastCourse[0]._id + 1 : 1;
+
+    const result = await database.collection(collection).insertOne({
+      _id: Number(newId),
+      title: course.title,
+      description: course.description,
+      category: course.category,
+      level: course.level,
+    });
+    return result;
+  } catch (error) {
+    console.error("Failed to find document by ID", error);
+  }
+}
+
+async function updateCourse(collection, course) {
+  try {
+    const database = await db.connectMongo();
+    const result = await database.collection(collection).updateOne(
+      { _id: Number(course.id) },
+      {
+        $set: {
+          title: course.title,
+          description: course.description,
+          category: course.category,
+          level: course.level,
+        },
+      }
+    );
+    return result;
+  } catch (error) {
+    console.error("Failed to find document by ID", error);
+  }
+}
+
 // Export des services
 module.exports = {
   findOneById,
   findAll,
   getCourseStats,
+  createCourse,
+  updateCourse,
 };

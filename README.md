@@ -2,21 +2,15 @@
 
 ## Verification des get routes
 
-```bash
 router.get("/", courseController.getAllCourses)
-```
 
 ![](./getall.png)
 
-```bash
 router.get("/:id", courseController.getCourse)
-```
 
 ![](./getById.png)
 
-```bash
 router.get("/stats", courseController.getCourseStats)
-```
 
 ![](./getStats.png)
 
