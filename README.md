@@ -6,7 +6,7 @@ Il s'agit de l'API backend d'une plateforme d'apprentissage en ligne, construite
 
 - [Installation](#installation)
 - [Structure du projet](#project-structure)
-- [Choix techniques](#choix techniques)
+- [Choix techniques](#choix-techniques)
 - [Reponses aux questions](#reponses-aux-questions)
 
 # Installation
