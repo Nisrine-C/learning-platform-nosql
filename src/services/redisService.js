@@ -1,19 +1,20 @@
-// Fonctions utilitaires pour Redis
-async function cacheData(key, data, ttl) {
-  try {
-    const cachedData = await redisClient.get(key);
-    if (cachedData) {
-      return JSON.parse(cachedData);
-    }
+const { createClient } = require("redis");
+require("dotenv").config();
 
-    await redisClient.setEx(key, ttl, JSON.stringify(data));
-    return data;
-  } catch (error) {
-    console.error("Error caching data with Redis:", error);
-    throw error;
-  }
-}
+const redisClient = createClient({
+  url: process.env.REDIS_URI,
+});
 
-module.exports = {
-  cacheData,
-};
+redisClient.on("connect", () => {
+  console.log("Connected to Redis");
+});
+
+redisClient.on("error", (err) => {
+  console.error("Redis error", err);
+});
+
+(async () => {
+  await redisClient.connect();
+})();
+
+module.exports = redisClient;

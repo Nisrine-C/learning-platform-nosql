@@ -19,6 +19,7 @@ async function createCourse(request, response) {
 
   try {
     const result = await mongoService.createCourse("course", course);
+    await redisService.delCache("courses");
     response
       .status(201)
       .json({ message: "Course created successfully", result: result });
@@ -62,7 +63,15 @@ async function updateCourse(request, response) {
 
 async function getCourse(request, response) {
   const { id } = request.params;
+  const cacheKey = `course:${id}`;
   try {
+    const cachedData = await redisService.getCache(cacheKey);
+    if (cachedData) {
+      console.log("Serving from cache");
+      return res.status(200).json(cachedData);
+    }
+
+    await redisService.setCache(cacheKey, course);
     const course = await mongoService.findOneById("course", id);
     if (!course) {
       return response.status(404).json({ message: "Course not found" });
@@ -76,11 +85,20 @@ async function getCourse(request, response) {
 }
 
 async function getAllCourses(request, response) {
+  const cacheKey = "courses";
   try {
-    const courses = await mongoService.findAll("course"); // Use the service
+    const courses = await mongoService.findAll("course");
+
+    const cachedData = await redisService.getCache(cacheKey);
+    if (cachedData) {
+      console.log("Serving from cache");
+      return res.status(200).json(cachedData);
+    }
+
     if (!courses) {
       return response.status(404).json({ message: "No Courses Available" });
     }
+    await redisService.setCache(cacheKey, courses);
     response.status(200).json(courses);
   } catch (error) {
     response
