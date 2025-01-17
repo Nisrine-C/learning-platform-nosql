@@ -11,25 +11,25 @@ Il s'agit de l'API backend d'une plateforme d'apprentissage en ligne, construite
 
 # Installation
 
-1.Cloner ce dépôt:
+1. Cloner ce dépôt:
 
 ```bash
     git clone https://github.com/[votre-compte]/learning-platform-nosql
     cd learning-platform-nosql
 ```
 
-2.Installer les dépendances:
+2. Installer les dépendances:
 
 ```bash
     npm install
 ```
 
-3.Configurer les variables d’environnement:
+3. Configurer les variables d’environnement:
 
 Créez un fichier .env dans le répertoire racine.
 Configurez votre connexion à la base de données et les autres configurations nécessaires conformément au fichier .env.example.
 
-4.Exécutez le projet:
+4. Exécutez le projet:
 
 ```bash
    npm start
@@ -55,15 +55,15 @@ Le projet suit une architecture modulaire avec une séparation claire des préoc
 
 # Choix Techniques
 
-1.Pourquoi ai-je choisi NoSQL pour la base de données ?
+1. Pourquoi ai-je choisi NoSQL pour la base de données ?
 
 NoSQL a été choisi pour son évolutivité et sa flexibilité, ce qui nous permet de gérer facilement différentes structures de données, en particulier pour les ensembles de données en évolution rapide tels que les cours, les étudiants et les inscriptions.
 
-2.Pourquoi ai-je choisi cette structure ?
+2. Pourquoi ai-je choisi cette structure ?
 
 La structure modulaire assure une séparation claire des préoccupations, ce qui rend l'application plus facile à maintenir et à faire évoluer à mesure que les fonctionnalités se développent. L'architecture MVC offre un moyen robuste d'organiser le code, avec des contrôleurs gérant les requêtes HTTP et des services axés sur la logique métier.
 
-3.Comment fonctionne la gestion des erreurs dans l'application ?
+3. Comment fonctionne la gestion des erreurs dans l'application ?
 
 La gestion des erreurs est centralisée dans les services, où toutes les exceptions sont détectées et les codes d'état et messages HTTP appropriés sont renvoyés. Un middleware d'erreur personnalisé est utilisé pour gérer les erreurs inattendues à l'échelle mondiale.
 
