@@ -1,0 +1,37 @@
+[
+  {
+    "_id": 1,
+    "title": "Introduction to Programming",
+    "description": "A beginner-friendly course covering the fundamentals of programming using Python.",
+    "category": "Programming",
+    "level": "Beginner"
+  },
+  {
+    "_id": 2,
+    "title": "Advanced JavaScript",
+    "description": "An in-depth course exploring advanced JavaScript concepts, including closures, promises, and async/await.",
+    "category": "Programming",
+    "level": "Advanced"
+  },
+  {
+    "_id": 3,
+    "title": "Data Structures and Algorithms",
+    "description": "Learn the essential data structures and algorithms, focusing on optimization techniques and time complexity.",
+    "category": "Computer Science",
+    "level": "Intermediate"
+  },
+  {
+    "_id": 4,
+    "title": "Web Development with React",
+    "description": "A comprehensive guide to building modern web applications with React and state management.",
+    "category": "Web Development",
+    "level": "Intermediate"
+  },
+  {
+    "_id": 5,
+    "title": "Machine Learning Basics",
+    "description": "An introductory course to machine learning concepts, including supervised learning, regression, and classification.",
+    "category": "Data Science",
+    "level": "Beginner"
+  }
+]
