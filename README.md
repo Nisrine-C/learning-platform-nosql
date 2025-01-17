@@ -39,14 +39,17 @@ Configurez votre connexion à la base de données et les autres configurations n
 
 Le projet suit une architecture modulaire avec une séparation claire des préoccupations. Voici un aperçu des répertoires clés :
 
-controllers/ : contient la logique de gestion des requêtes HTTP.
-services/ : contient la logique métier, gère le traitement des données et interagit avec la base de données.
-routes/ : définit les routes de l'API et les associe aux contrôleurs.
-config/ : fichiers de configuration, y compris les connexions à la base de données et les paramètres d'environnement.
+-controllers/ : contient la logique de gestion des requêtes HTTP.
+-services/ : contient la logique métier, gère le traitement des données et interagit avec la base de données.
+-routes/ : définit les routes de l'API et les associe aux contrôleurs.
+-config/ : fichiers de configuration, y compris les connexions à la base de données et les paramètres d'environnement.
 
 Fichiers clés :
 
-server.js : point d'entrée de l'application.
+# server.js 
+
+point d'entrée de l'application.
+
 .env.example : exemple de fichier de variable d'environnement pour la configuration de la base de données.
 
 # Choix Techniques
