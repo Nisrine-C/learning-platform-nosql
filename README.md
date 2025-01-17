@@ -1,20 +1,69 @@
 # Projet de fin de module NoSQL
 
-## Verification des get routes
+Il s'agit de l'API backend d'une plateforme d'apprentissage en ligne, construite avec NoSQL. Elle suit une structure de code modulaire et les meilleures pratiques pour le développement de logiciels professionnels.
 
-router.get("/", courseController.getAllCourses)
+## Table des matières
 
-![](./getall.png)
+- [Installation](#installation)
+- [Structure du projet](#project-structure)
+- [Choix techniques](#choix techniques)
+- [Reponses aux questions](#reponses-aux-questions)
 
-router.get("/:id", courseController.getCourse)
+# Installation
 
-![](./getById.png)
+1.Cloner ce dépôt:
 
-router.get("/stats", courseController.getCourseStats)
+```bash
+    git clone https://github.com/[votre-compte]/learning-platform-nosql
+    cd learning-platform-nosql
+```
 
-![](./getStats.png)
+2.Installer les dépendances:
 
-# Questions Reponses
+```bash
+    npm install
+```
+
+3.Configurer les variables d’environnement:
+
+Créez un fichier .env dans le répertoire racine.
+Configurez votre connexion à la base de données et les autres configurations nécessaires conformément au fichier .env.example.
+
+4.Exécutez le projet:
+
+```bash
+   npm start
+```
+
+# Project Structure
+
+Le projet suit une architecture modulaire avec une séparation claire des préoccupations. Voici un aperçu des répertoires clés :
+
+controllers/ : contient la logique de gestion des requêtes HTTP.
+services/ : contient la logique métier, gère le traitement des données et interagit avec la base de données.
+routes/ : définit les routes de l'API et les associe aux contrôleurs.
+config/ : fichiers de configuration, y compris les connexions à la base de données et les paramètres d'environnement.
+
+Fichiers clés :
+
+server.js : point d'entrée de l'application.
+.env.example : exemple de fichier de variable d'environnement pour la configuration de la base de données.
+
+# Choix Techniques
+
+1.Pourquoi ai-je choisi NoSQL pour la base de données ?
+
+NoSQL a été choisi pour son évolutivité et sa flexibilité, ce qui nous permet de gérer facilement différentes structures de données, en particulier pour les ensembles de données en évolution rapide tels que les cours, les étudiants et les inscriptions.
+
+2.Pourquoi ai-je choisi cette structure ?
+
+La structure modulaire assure une séparation claire des préoccupations, ce qui rend l'application plus facile à maintenir et à faire évoluer à mesure que les fonctionnalités se développent. L'architecture MVC offre un moyen robuste d'organiser le code, avec des contrôleurs gérant les requêtes HTTP et des services axés sur la logique métier.
+
+3.Comment fonctionne la gestion des erreurs dans l'application ?
+
+La gestion des erreurs est centralisée dans les services, où toutes les exceptions sont détectées et les codes d'état et messages HTTP appropriés sont renvoyés. Un middleware d'erreur personnalisé est utilisé pour gérer les erreurs inattendues à l'échelle mondiale.
+
+# Reponses aux Questions
 
 ## Question: Quelles sont les informations sensibles à ne jamais commiter ?
 
